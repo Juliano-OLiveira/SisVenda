@@ -1,0 +1,26 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+    <section class="card m-5">
+        <header class="card-header">
+           
+            <h3> Adicionar Cliente</h3>
+        </header>
+        <div class="card-body">
+           
+            <form action="./listar.html" method="POST">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control">
+                    <label>CPF</label>
+                    <input type="number" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+              
+        </div>
+    </section>
+   
+
+{% endblock%}

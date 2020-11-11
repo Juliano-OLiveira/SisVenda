@@ -1,0 +1,68 @@
+.componente{
+    background-color: black;
+    width: 150px;
+    height: auto;
+    color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+    
+    padding: 15px;
+   
+}
+.componente2{
+    background-color: black;
+    width: 155px;
+    height: auto;
+    color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+     
+    padding: 15px;
+   
+}
+
+a{
+    margin-left: 8px;
+    color: white;
+    
+}
+.txt{
+    font-size: 20px;
+    margin-left: 50px;
+    margin-top: -30%;
+    text-decoration: none;
+}
+
+.container {  
+    display: grid;  
+    grid-gap: 5px;  
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, 100px); 
+    
+}
+
+
+ 
+
+
+.cards {
+  max-width: 1200px;
+  margin-left: 30px;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 600px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 900px) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px }

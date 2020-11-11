@@ -1,0 +1,38 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+    <section class="card m-5">
+        <header class="card-header">
+           
+            <h3> Categoria de Produto</h3>
+        </header>
+        <div class="card-body">
+            <a href="/categoria-produto/adicionar" class="btn btn-primary m-1">Adicionar</a>
+            <table class="table">
+                
+                <thead>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                   
+                    {% for categoria in categorias %}
+                   <tr>
+                       <td>{{categoria.id}}</td>
+                       <td>{{categoria.descricao}}</td>
+                       <td>
+                        <button>Editar</button>
+                        <button>Excluir</button>
+                       </td>
+
+                   </tr>
+                  {% endfor %}  
+                </tbody>
+            </table>
+        </div>
+    </section>
+   
+
+{% endblock%}

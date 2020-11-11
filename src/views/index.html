@@ -1,0 +1,29 @@
+{% extends "templade.html" %}
+
+{% block main %}
+
+<section>
+ 
+      <div class = "cards"> 
+        <div class="container">
+            <!-- componente1 -->
+            <div class="componente">
+                <a href="/cliente/listar">
+                       <div  class="material-icons md-36">people_outline</div> 
+                 <div class="txt"> Clientes</div>     
+              </a>
+              </div>
+
+              <!-- componente2 -->
+              <div class="componente2">
+                <a href="/categoria-produto/listar">
+                       <div  class="material-icons md-36">add_shopping_cart</div> 
+                 <div class="txt"> Produtos</div>     
+              </a>
+              </div> 
+     
+          </div>
+         
+      </div>
+</section>
+{% endblock %}
