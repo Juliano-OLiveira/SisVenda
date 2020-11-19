@@ -9,16 +9,16 @@
     padding: 15px;
    
 }
-.componente2{
-    background-color: black;
-    width: 155px;
-    height: auto;
-    color: white;
-    border-radius: 15px;
-    margin-top: 20px;
-     
-    padding: 15px;
-   
+.componente3{
+  background-color: black;
+  width: 170px;
+  height: auto;
+  color: white;
+  border-radius: 15px;
+  margin-top: 20px;
+  
+  padding: 16px;
+ 
 }
 
 a{
@@ -59,7 +59,7 @@ a{
 
 /* Screen larger than 900px? 3 columns */
 @media (min-width: 900px) {
-  .cards { grid-template-columns: repeat(3, 1fr); }
+  .cards { grid-template-columns: repeat(2, 2fr); }
 }
 
 .material-icons.md-18 { font-size: 18px; }

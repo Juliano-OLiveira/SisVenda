@@ -13,10 +13,10 @@
         </div>
         <header class="card-header">
           
-            <h3> Categoria de Produto</h3>
+            <h3> Forma de Pagamentos</h3>
         </header>
         <div class="card-body">
-            <a href="/categoria-produto/adicionar" class="btn btn-primary m-1">Adicionar</a>
+            <a href="/forma/adicionar" class="btn btn-primary m-1">Adicionar</a>
             <table class="table">
                 
                 <thead>
@@ -26,10 +26,10 @@
                 </thead>
                 <tbody>
                     
-                    {% for categoria in categorias %}
+                    {% for forma in formas %}
                    <tr>
-                       <td >{{categoria.id}}</td>
-                       <td>{{categoria.descricao}}</td>
+                       <td >{{forma.id}}</td>
+                       <td>{{forma.descricao}}</td>
                        <td>
                           
                         
@@ -39,7 +39,7 @@
                              </a>
                              
                              
-                            <a   class="red"   id="{{categoria.id}}">
+                            <a   class="red"   id="{{forma.id}}">
                                
                                 <div  class="material-icons md-36">delete_forever</div> 
                                
@@ -82,5 +82,5 @@
 
             </div>
       
-              <script src="/js/modal.js"></script>
+              <script src="/js/forma_modal.js"></script>
 {% endblock%}

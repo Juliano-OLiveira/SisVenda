@@ -1,15 +1,20 @@
 {% extends "templade.html" %}
 
 {% block main %}
- 
+       
     <section class="card m-5">
+       
+        <div  class="alert alert-{{message.type}} " role="alert" >
+            <strong>{{message.intro}}</strong>{{message.message}}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
         <header class="card-header">
            
             <h3> Clientes</h3>
         </header>
         <div class="card-body">
             <a href="/cliente/adicionar" class="btn btn-primary m-1">Adicionar</a>
-            <table class="table">
+            <table class="table ">
                 
                 <thead>
                     <th>ID</th>
@@ -25,17 +30,43 @@
                        <td>{{cliente.nome}}</td>
                        <td>{{cliente.cpf}}</td>
                        <td>
-                           <button>Editar</button>
-                           <button>Excluir</button>
+                           <button class="btn btn-warning acoes">Editar</button>
+                           <button class="btn btn-danger delete acoes" id="{{cliente.id}}">Excluir</button>
                            
                        </td>
 
                    </tr>
+                   {% else %}
+                    <div class="alert alert-dark" role="alert">Nenhun Registro!!!</div>
                   {% endfor %}  
                 </tbody>
             </table>
         </div>
     </section>
-   
+                                                  <!-- Modal -->
+     <div class="modal fade" id="modalCategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title"  id="exampleModalLabel">Excluir Cliente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Tem Certeza que deseja apagar este Cliente !!! 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+               
+            <a  id="btnDelteYes"   ><button  type="button" class="btn btn-danger">Deletar</button> 
+            
+            </div>
+          </div>
+        </div>
+      </div>
+  
+              </div>
+              <script src="/js/modal_cliente.js"></script>
 
 {% endblock%}

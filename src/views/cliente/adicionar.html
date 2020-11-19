@@ -9,12 +9,12 @@
         </header>
         <div class="card-body">
            
-            <form action="./listar.html" method="POST">
+            <form action="/cliente/salvar" method="POST">
                 <div class="form-group">
                     <label>Nome</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="nome" required class="form-control">
                     <label>CPF</label>
-                    <input type="number" class="form-control">
+                    <input type="number" name="cpf" required class="form-control">
                 </div>
                 <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
