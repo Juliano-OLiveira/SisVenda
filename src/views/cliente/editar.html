@@ -1,0 +1,29 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+        
+    <section class="card m-5">
+        <header class="card-header">
+        
+            <h3> Editar Cliente</h3>
+        </header>
+        <div class="card-body">
+        
+            <form action="/cliente/atualizar" method="POST">
+                <input type="hidden" name="id" value={{cliente.id}}>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" value="{{cliente.nome}}" class="form-control">
+                    <label>CPF</label>
+                    <input type="number" name="cpf" value="{{cliente.cpf}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="/cliente/listar"><button   class="btn btn-success">Voltar</button></a>
+            </form>
+            
+        </div>
+    </section>
+   
+
+{% endblock%}
