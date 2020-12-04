@@ -1,0 +1,28 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+    <section class="card m-5">
+        <header class="card-header">
+           
+            <h3> Cadastrar Usuario</h3>
+        </header>
+        <div class="card-body">
+           
+            <form action="/usuario/cadastrar/" method="POST">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" required class="form-control">
+                    <label>Email</label>
+                    <input type="email" name="email" required class="form-control">
+                    <label>Senha</label>
+                    <input type="text" name="senha" required class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+              
+        </div>
+    </section>
+   
+
+{% endblock%}

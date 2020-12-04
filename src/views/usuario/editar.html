@@ -1,0 +1,31 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+        
+    <section class="card m-5">
+        <header class="card-header">
+        
+            <h3> Editar Usuário</h3>
+        </header>
+        <div class="card-body">
+        
+            <form action="/usuario/atualizar" method="POST">
+                <input type="hidden" name="id" value={{usuario.id}}>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" name="nome" value="{{usuario.nome}}" class="form-control">
+                    <label>Email</label>
+                    <input type="email" name="email" value="{{usuario.email}}" class="form-control">
+                    <label>Senha</label>
+                    <input type="password" name="senha" value="{{usuario.senha}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a href="/usuario/listar"><button   class="btn btn-success">Voltar</button></a>
+            </form>
+            
+        </div>
+    </section>
+   
+
+{% endblock%}

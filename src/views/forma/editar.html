@@ -1,0 +1,31 @@
+{% extends "templade.html" %}
+
+{% block main %}
+ 
+<section class="card m-5">
+    <header class="card-header">
+       
+        <h3>Editar Forma de Pagamento</h3>
+    </header>
+    <div class="card-body">
+       
+        <form action="/forma/atualizar" method="POST">
+            <input type="hidden" name="id" value="{{forma.id}}">
+            <div class="form-group">
+                <label>Descrição</label>
+                <input type="text" name="descricao" value="{{forma.descricao}}" class="form-control">
+                
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <a href="/forma/listar"><button class="btn btn-success">Voltar</button></a>
+        </form>
+          
+    </div>
+</section>
+   
+
+{% endblock%}
+
+
+
+

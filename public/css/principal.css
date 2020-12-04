@@ -54,12 +54,21 @@ a{
 
 /* Screen larger than 600px? 2 column */
 @media (min-width: 600px) {
-  .cards { grid-template-columns: repeat(2, 1fr); }
+  .cards { grid-template-columns: repeat(2, 3fr); }
+}
+
+/* Screen larger than 300px? 2 column */
+@media (min-width: 300px) {
+  .cards { grid-template-columns: repeat(2, 3fr); }
 }
 
 /* Screen larger than 900px? 3 columns */
+@media (min-width: 768px) {
+  .cards { grid-template-columns: repeat(1, 2fr); }
+}
+/* Screen larger than 900px? 3 columns */
 @media (min-width: 900px) {
-  .cards { grid-template-columns: repeat(2, 2fr); }
+  .cards { grid-template-columns: repeat(1, 3fr); }
 }
 
 .material-icons.md-18 { font-size: 18px; }

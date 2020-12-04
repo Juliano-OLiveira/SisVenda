@@ -5,6 +5,9 @@ const session = require('express-session');
  
 const conectar_venda = require('./src/db/queries');
 const ClienteController = require('./src/controller/ClienteController');
+const CategoriaController = require('./src/controller/CategoriaController');
+const FormaPagamentoController = require('./src/controller/FormaPagamentoController');
+const UsuarioController = require('./src/controller/UsuarioController');
  
  
 
@@ -54,15 +57,21 @@ app.get('/', function (req, res) {
 })
 
 
-//------------------Listando do Categoria--------------//
-app.get('/categoria-produto/listar',conectar_venda.getCategoria)
+//------------------Rotas de Categoria--------------//
+//listando
+app.get('/categoria-produto/listar',CategoriaController.index)
 
 //adicionar produto
-app.get('/categoria-produto/adicionar', function (req, res) {
-  
-  res.render('categoria-produto/adicionar' )
+app.get('/categoria-produto/adicionar',CategoriaController.create)
 
-})
+//cadastrar produto
+app.post('/categoria-produto',CategoriaController.store)
+
+//view edit
+app.get('/categoria-produto/editar/:id',CategoriaController.edit)
+
+//atualizar
+app.post('/categoria-produto/atualizar',CategoriaController.update)
 
 //----------------------Rotas Cliente---------------------------------//
 //listar cliente
@@ -84,34 +93,47 @@ app.get('/cliente/editar/:id',ClienteController.edit)
 app.post('/cliente/atualizar',ClienteController.update)
 
 //----------------------Rota View Pagamento---------------------------------//
-app.get('/forma/listar',conectar_venda.getForma)
+//listar
+app.get('/forma/listar',FormaPagamentoController.index)
 
 //adicionar forma
-app.get('/forma/adicionar', function (req, res) {
-  
-  res.render('forma/adicionar' )
+app.get('/forma/adicionar',FormaPagamentoController.create)
 
-})
+//cadastrar forma de pagamento
+app.post('/forma/salve',FormaPagamentoController.store)
 
+//deletar
+app.get('/deletar-forma/:id',FormaPagamentoController.delete)
+
+//editar
+app.get('/forma/editar/:id',FormaPagamentoController.edit)
+
+//atualizar
+app.post('/forma/atualizar',FormaPagamentoController.update)
 
 //-----------------------Postgres--------------------------------//
  
 
 
-//cadastrar produto
-app.post('/categoria-produto',conectar_venda.createCategoria)
+
 
 //cadastrar usuario
-app.post('/usuario',conectar_venda.createUser)
+app.post('/usuario/cadastrar/',UsuarioController.store)
+app.get('/usuario/adicionar',UsuarioController.create)
+app.get('/usuario/listar',UsuarioController.index)
+app.get('/usuario/editar/:id',UsuarioController.edit)
+app.post('/usuario/atualizar',UsuarioController.update)
+app.get('/usuario/deletar/:id',UsuarioController.delete)
 
-//cadastrar forma de pagamento
-app.post('/forma/salve',conectar_venda.formaPagamento)
+
+
+
 
  
  //-----------------Deletar---------------//
- app.get('/deletar-categoria/:id',conectar_venda.deleCategoria)
+ app.get('/deletar-categoria/:id',CategoriaController.deletar)
  
- app.get('/deletar-forma/:id',conectar_venda.deleForma)
+ 
 
 
 

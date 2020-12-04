@@ -10,13 +10,15 @@
         </header>
         <div class="card-body">
            
-            <form action="/categoria-produto" method="POST">
+            <form action="/categoria-produto/atualizar" method="POST">
+                <input type="hidden" name="id" value={{categoria.id}}>
                 <div class="form-group">
                     <label>Descrição</label>
-                    <input type="text" required name="descricao" class="form-control">
+                    <input type="text" name="descricao" value="{{categoria.descricao}}" class="form-control">
                    
                 </div>
                 <button type="submit"  class="btn btn-primary">Salvar</button>
+               <a href="/categoria-produto/listar"><button class="btn btn-success"  >Voltar</button></a>
                    
             </form>
               
