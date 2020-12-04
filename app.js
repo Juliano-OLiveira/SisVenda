@@ -4,13 +4,14 @@ const session = require('express-session');
 
  
 const conectar_venda = require('./src/db/queries');
+const ClienteController = require('./src/controller/ClienteController');
  
  
 
 const app = express()
  
 
-//configurando o body parser para pegar POSTS mais tarde
+//configurando  para pegar POSTS mais tarde
 app.use(express.urlencoded({extended:true}));
 
 const port = 3000
@@ -52,15 +53,6 @@ app.get('/', function (req, res) {
 
 })
 
-//--------------------Rotas Views------------------------------
-//listar produto
-// app.get('/categoria-produto/listar', (req, res) => {
-//     let {categoriasDeProdutos} = require('./src/db/fakeData')
-   
-  
-//   res.render('categoria-produto/listar',{categorias:categoriasDeProdutos})
-  
-// })
 
 //------------------Listando do Categoria--------------//
 app.get('/categoria-produto/listar',conectar_venda.getCategoria)
@@ -72,15 +64,24 @@ app.get('/categoria-produto/adicionar', function (req, res) {
 
 })
 
+//----------------------Rotas Cliente---------------------------------//
 //listar cliente
-app.get('/cliente/listar', conectar_venda.getCliente)
+app.get('/cliente/listar',ClienteController.index)
 
 //adicionar cliente
-app.get('/cliente/adicionar', function (req, res) {
-  
-  res.render('cliente/adicionar' )
+app.get('/cliente/adicionar',ClienteController.create)
 
-})
+//cadastrar cliente
+app.post('/cliente/salvar', ClienteController.store)
+
+//DELTEAR cliente
+app.get('/deletar-cliente/:id',ClienteController.deletar)
+
+//viw editar cliente
+app.get('/cliente/editar/:id',ClienteController.edit)
+
+//atualizar
+app.post('/cliente/atualizar',ClienteController.update)
 
 //----------------------Rota View Pagamento---------------------------------//
 app.get('/forma/listar',conectar_venda.getForma)
@@ -95,8 +96,7 @@ app.get('/forma/adicionar', function (req, res) {
 
 //-----------------------Postgres--------------------------------//
  
-//cadastrar cliente
-app.post('/cliente/salvar', conectar_venda.createCliente)
+
 
 //cadastrar produto
 app.post('/categoria-produto',conectar_venda.createCategoria)
@@ -110,7 +110,7 @@ app.post('/forma/salve',conectar_venda.formaPagamento)
  
  //-----------------Deletar---------------//
  app.get('/deletar-categoria/:id',conectar_venda.deleCategoria)
- app.get('/deletar-cliente/:id',conectar_venda.deleCliente)
+ 
  app.get('/deletar-forma/:id',conectar_venda.deleForma)
 
 
