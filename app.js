@@ -3,7 +3,7 @@ const nunjucks = require('nunjucks')
 const session = require('express-session'); 
 
  
-const conectar_venda = require('./src/db/queries');
+
 const ClienteController = require('./src/controller/ClienteController');
 const CategoriaController = require('./src/controller/CategoriaController');
 const FormaPagamentoController = require('./src/controller/FormaPagamentoController');

@@ -49,14 +49,15 @@ class CategoriaController{
           }
           //res.status(200).send(`User deleted with ID: ${id}`)
           req.session.message={
-            type: 'success',
+            type: 'danger',
             intro:'Categoria: ',
             message:'Deletada com sussesso!!!'
           }
-          
+          res.redirect(`/categoria-produto/listar`) 
          
         })
-        res.redirect(`/categoria-produto/listar`) 
+        
+      
     }
     edit(req,res){
         const id = req.params.id
@@ -84,6 +85,11 @@ class CategoriaController{
             if(err){
                 console.log(`Erro ao atualizar registro ${err}`);
             } 
+                  req.session.message={
+                    type: 'warning',
+                    intro:'Categoria: ',
+                    message:'Editado com sussesso!!!'
+                  }
                 res.redirect('/categoria-produto/listar')
             
 

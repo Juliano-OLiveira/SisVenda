@@ -48,14 +48,14 @@ class ClienteController{
             }
             //res.status(200).send(`User deleted with ID: ${id}`)
             req.session.message={
-            type: 'success',
+            type: 'danger',
             intro:'Cliente: ',
             message:'Deletado com sussesso!!!'
             }
-           
+            res.redirect(`/cliente/listar`) 
    
   })
-  res.redirect(`/cliente/listar`) 
+  
     }
 
      //redirecionar a pagina editar
@@ -69,8 +69,9 @@ class ClienteController{
             if(err){
                 console.log(`houve um erro${err}`);
             }
-            res.render('cliente/editar',{cliente:result.rows[0]})
+            
         })
+        res.render('cliente/editar',{cliente:result.rows[0]})
     }
 
     //atualizar
@@ -84,7 +85,12 @@ class ClienteController{
             if(err){
                 console.log(`Erro ao atualizar registro ${err}`);
             } 
-                res.redirect('/cliente/listar')
+            req.session.message={
+                type: 'warning',
+                intro:'Categoria: ',
+                message:'Editado com sussesso!!!'
+              }    
+            res.redirect('/cliente/listar')
             
 
         }) 
