@@ -69,9 +69,9 @@ class ClienteController{
             if(err){
                 console.log(`houve um erro${err}`);
             }
-            
+            res.render('cliente/editar',{cliente:result.rows[0]})
         })
-        res.render('cliente/editar',{cliente:result.rows[0]})
+        
     }
 
     //atualizar
